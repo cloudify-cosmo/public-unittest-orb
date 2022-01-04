@@ -19,6 +19,9 @@ steps:
       name: Init virtualenv
       command: virtualenv env
   - run:
+      name: clean git
+      command: git clean  -d  -f .
+  - run:
       name: Git checkout
       command: git checkout ${CIRCLE_BRANCH}
   - run:
