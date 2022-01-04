@@ -2,6 +2,9 @@ description: >
   This command checks py3 compat for a plugin
 steps:
   - run:
+      name: clean git
+      command: git clean  -d  -f .
+  - run:
       name: Git checkout
       command: git checkout ${CIRCLE_BRANCH}
   - run:
