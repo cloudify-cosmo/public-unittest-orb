@@ -24,7 +24,7 @@ steps:
       command: virtualenv env
   - run:
       name: Git checkout
-      command: git checkout -f ${CIRCLE_BRANCH}
+      command: git checkout ${CIRCLE_BRANCH}
   - run:
       name: install tox
       command: pip install --user pygithub pyyaml==3.10
@@ -37,3 +37,4 @@ steps:
   - attach_workspace:
       at: workspace
   - run: ecosystem-test validate-plugin-version
+  - run: ecosystem-test validate-plugin-yamls
