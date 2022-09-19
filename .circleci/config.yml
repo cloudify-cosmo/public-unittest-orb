@@ -1,7 +1,6 @@
 version: 2.1
 
 orbs:
-  # Replace this with your own!
   public-unittest-orb: cloudify/public-unittest-orb@1
   orb-tools: circleci/orb-tools@10.0
   bats: circleci/bats@1.0
