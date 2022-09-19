@@ -1,5 +1,6 @@
 description: >
   This command checks py3 compat for a plugin
+
 steps:
   - run:
       name: Git checkout
