@@ -1,6 +1,5 @@
 description: >
   This command runs the unit tests for a plugin
-
 steps:
   - run:
       name: Set Python
