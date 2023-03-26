@@ -20,10 +20,6 @@ parameters:
       A "dev:alpha" version must exist for the initial pipeline run.
     type: string
     default: "dev:alpha"
-#   circleci-token:
-#     description: Specified CircleCI token set in the project's env vars
-#     type: env_var_name
-#     default: "CIRCLE_TOKEN"
 
 jobs:
   # Define one or more jobs which will utilize your orb's commands and parameters to validate your changes.
@@ -55,7 +51,7 @@ workflows:
           path: ./src/tests
       # Publish development version(s) of the orb.
       - orb-tools/publish-dev:
-          publish-token-variable: "CIRCLE_TOKEN"
+          publish-token-variable: "CIRCLE_TOKEN_BASE64"
           orb-name: cloudify/public-unittest-orb
           context: orb-publishing # A restricted context containing your private publishing credentials. Will only execute if approved by an authorized user.
           requires:
