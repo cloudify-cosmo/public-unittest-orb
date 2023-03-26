@@ -22,7 +22,7 @@ parameters:
     default: "dev:alpha"
   circleci-token:
     description: Specified CircleCI token set in the project's env vars
-    type: string
+    type: env_var_name
     default: "CIRCLE_TOKEN"
 
 jobs:
