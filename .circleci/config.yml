@@ -55,7 +55,7 @@ workflows:
           path: ./src/tests
       # Publish development version(s) of the orb.
       - orb-tools/publish-dev:
-          publish-token-variable: "CIRCLE_TOKEN"
+          publish-token-variable: "CIRCLE_TOKEN_BASE64"
           orb-name: cloudify/public-unittest-orb
           context: orb-publishing # A restricted context containing your private publishing credentials. Will only execute if approved by an authorized user.
           requires:
