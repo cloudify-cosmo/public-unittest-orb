@@ -28,6 +28,11 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout
+  add-key:
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "c9:3e:6a:7f:65:7a:3f:ff:da:4c:84:b4:1c:a4:96:f9"
 
 workflows:
   # Prior to producing a development orb (which requires credentials) basic validation, linting, and even unit testing can be performed.
@@ -35,6 +40,7 @@ workflows:
   test-pack:
     unless: << pipeline.parameters.run-integration-tests >>
     jobs:
+      - add-key
       - orb-tools/lint # Lint Yaml files
       - orb-tools/pack # Pack orb source
       - shellcheck/check:
@@ -45,9 +51,6 @@ workflows:
           path: ./src/tests
       # Publish development version(s) of the orb.
       - orb-tools/publish-dev:
-          - add_ssh_keys:
-              fingerprints:
-                - "c9:3e:6a:7f:65:7a:3f:ff:da:4c:84:b4:1c:a4:96:f9"
           orb-name: cloudify/public-unittest-orb
           context: orb-publishing # A restricted context containing your private publishing credentials. Will only execute if approved by an authorized user.
           requires:
