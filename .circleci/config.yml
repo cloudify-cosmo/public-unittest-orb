@@ -57,9 +57,9 @@ workflows:
       - orb-tools/publish:
           orb-name: cloudify/public-unittest-orb
           vcs-type:
-            type: enum
-            default: github
-            enum: ["gh", "github", "bb", "bitbucket"]
+            - type: enum
+              default: github
+              enum: ["gh", "github", "bb", "bitbucket"]
           context: orb-publishing # A restricted context containing your private publishing credentials. Will only execute if approved by an authorized user.
           requires:
             - orb-tools/lint
