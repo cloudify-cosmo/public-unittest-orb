@@ -2,7 +2,7 @@ version: 2.1
 
 orbs:
   public-unittest-orb: cloudify/public-unittest-orb@1
-  orb-tools: circleci/orb-tools@11.6.1
+  orb-tools: circleci/orb-tools@10.0.0
   bats: circleci/bats@1.0
   shellcheck: circleci/shellcheck@2.0
 
@@ -54,9 +54,8 @@ workflows:
       - bats/run:
           path: ./src/tests
       # Publish development version(s) of the orb.
-      - orb-tools/publish:
+      - orb-tools/publish-dev:
           orb-name: cloudify/public-unittest-orb
-          vcs-type: github
           context: orb-publishing # A restricted context containing your private publishing credentials. Will only execute if approved by an authorized user.
           requires:
             - orb-tools/lint
