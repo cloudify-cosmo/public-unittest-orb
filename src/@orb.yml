@@ -4,4 +4,4 @@ description: >
   this orb runs unittests and validates the docs version and py3 compatibility
 
 orbs:
-  gh: circleci/github-cli@1.1.0
+  gh: circleci/github-cli@2.2.0
