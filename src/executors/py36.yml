@@ -1,4 +1,4 @@
 description: >
   This is a python 3.6 executor using Docker and Node.
 docker:
-      - image: cimg/python:3.6
+      - image: circleci/python:3.6
