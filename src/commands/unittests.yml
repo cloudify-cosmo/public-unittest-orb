@@ -2,16 +2,6 @@ description: >
   This command runs the unit tests for a plugin
 steps:
   - run:
-      name: Set Python
-      command: |
-        if ! command -v COMMAND &> /dev/null
-        then
-            echo "COMMAND could not be found"
-            exit
-        else
-            pyenv global 3.6.5
-        fi
-  - run:
       name: upgrade pip
       command: pip install --upgrade pip
   - run:
@@ -27,11 +17,8 @@ steps:
       name: Install tox
       command: pip install tox
   - run:
-      name: Install tox
-      command: pip install tox
-  - run:
       name: Run flake8 test
-      command: /home/circleci/.local/bin/tox -e linting
+      command: tox -e linting
   - run:
       name: Run py36 test
-      command: /home/circleci/.local/bin/tox -e unittesting
+      command: tox -e unittesting
