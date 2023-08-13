@@ -19,6 +19,20 @@ steps:
   - run:
       name: Run flake8 test
       command: tox -e linting
+      no_output_timeout: 30m
   - run:
       name: Run py36 test
       command: tox -e unittesting
+  - save_cache:
+      name: Store Eggs.
+      key: deps-{{ .Environment.CIRCLE_PROJECT_REPONAME}}
+      paths:
+        - cloudify_aws_plugin.egg-info
+        - cloudify_ansible_plugin.egg-info
+        - cloudify_azure_plugin.egg-info
+        - cloudify_gcp_plugin.egg-info
+        - cloudify_helm_plugin.egg-info
+        - cloudify_kubernetes_plugin.egg-info
+        - cloudify_vcloud_plugin.egg-info
+        - cloudify_vsphere_plugin.egg-info
+        - .tox
