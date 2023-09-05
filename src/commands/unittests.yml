@@ -17,6 +17,9 @@ steps:
       name: Install tox
       command: pip install tox
   - run:
+      name: Wait 20s
+      command: sleep 20
+  - run:
       name: Run flake8 test
       command: tox -e linting
       no_output_timeout: 30m
